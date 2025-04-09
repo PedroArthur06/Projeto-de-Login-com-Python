@@ -1,5 +1,5 @@
 import re
-
+# validação dos dados necessários
 def validaCPF(cpf: str) -> bool:
   cpf = ''.join(filter(str.isdigit, cpf))
   if len(cpf) != 11:
