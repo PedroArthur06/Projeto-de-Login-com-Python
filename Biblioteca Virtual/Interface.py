@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from Database import cadastro, autenticar, verificar_email_existente
 from validador import validaCPF, validaEmail, validaSenha
-#python -m streamlit run Interface.py
+# Para executar rode: python -m streamlit run Interface.py
 
 # Título e ícone da página
 st.set_page_config(page_title="Cadastro de usuários", page_icon="👤", layout="wide")
