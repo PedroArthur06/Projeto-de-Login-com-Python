@@ -1,3 +1,3 @@
 
 USE biblioteca;
-SELECT * FROM usuarios;
+TRUNCATE TABLE usuarios;
