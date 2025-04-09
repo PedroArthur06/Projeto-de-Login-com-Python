@@ -1,7 +1,7 @@
 import mysql.connector
 import streamlit as st
 
-# Função para criar a conexão com o banco de dados
+# Conectando com o banco de dados
 def conect_banco():
     conn = mysql.connector.connect(
         host="Nome do Host",  
@@ -11,6 +11,7 @@ def conect_banco():
     )
     return conn
 
+# Cadastro de usuário
 def cadastro(nome, email, senha, cpf, nome_usuario):
     conn = conect_banco()
     cursor = conn.cursor()
@@ -32,7 +33,7 @@ def cadastro(nome, email, senha, cpf, nome_usuario):
     finally:
         conn.close()
 
-# Função para autenticar um usuário
+# Autenticar os dados
 def autenticar(email, senha):
     conn = conect_banco()
     cursor = conn.cursor()
@@ -41,6 +42,7 @@ def autenticar(email, senha):
     conn.close()
     return usuario
 
+# Verifica se o email não estã cadastrado no banco de dados
 def verificar_email_existente(email):
     conn = conect_banco()
     cursor = conn.cursor()
