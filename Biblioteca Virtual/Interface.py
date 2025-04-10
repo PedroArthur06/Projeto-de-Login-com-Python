@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-from Database import cadastro, autenticar, verificar_email_existente
+from Database import cadastro, autenticar, verificar_email_existente, enviar_email_confirmacao
 from validador import validaCPF, validaEmail, validaSenha
 # Para executar rode: python -m streamlit run Interface.py
 
@@ -72,9 +72,10 @@ if menu == "Início":
                 senha_valida, mensagens = validaSenha(senha)
                 if senha_valida:
                     if validaEmail(email):
-                        if not verificar_email_existente(email):  
+                        if not verificar_email_existente(email):
                             if validaCPF(cpf):
                                 cadastro(nome, email, senha, cpf, nome_usuario)
+                                enviar_email_confirmacao(email, nome_usuario)  # Envia o e-mail de confirmação
                                 st.success("Cadastro realizado com sucesso!")
                                 mudar_tela("Login")
                             else:
