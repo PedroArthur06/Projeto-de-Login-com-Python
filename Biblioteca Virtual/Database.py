@@ -7,9 +7,9 @@ from email.mime.multipart import MIMEMultipart
 # Conectando com o banco de dados
 def conect_banco():
     conn = mysql.connector.connect(
-        host="Nome do Host",  
-        user="Usuario",  
-        password="Senha", 
+        host="127.0.0.1",  
+        user="root",  
+        password="PedroMari19@", 
         database="biblioteca"
     )
     return conn
@@ -76,7 +76,7 @@ def enviar_email_confirmacao(email, nome_usuario):
         
         Seja bem-vindo(a) à nossa plataforma!
         """
-        mensagem.attach(MIMEText(corpo_email, "plain"))
+        mensagem.attach(MIMEText(corpo_email, "plain", "utf-8"))
 
         # Conectar ao servidor e enviar o e-mail
         with smtplib.SMTP(servidor, porta) as smtp:
